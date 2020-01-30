@@ -22,12 +22,23 @@ function App() {
     };
     setTeam([...team,newMember])
   }
-    console.log(team)
+  const [memberToEdit,setMemberToEdit] = useState()
+  
+  const editMember= e => {
+    // setMemberToEdit(member)
+    console.log(e.target.id)
+    console.log(team.find(member=> member.id== e.target.id))
+    const member = team.find(member=> member.id== e.target.id)
+    setMemberToEdit(memberToEdit=member);
+    console.log(memberToEdit)
+
+  }
+
   return (
     <div>
       <Form addMember={addMember}/>
       <h1>Team Members</h1>
-      <TeamList team={team}/>
+      <TeamList team={team} editMember={editMember}/>
    
         
     </div>
